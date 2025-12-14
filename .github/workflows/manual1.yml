@@ -1,0 +1,29 @@
+on:
+  repository_dispatch:
+    types: [incident_report]
+
+jobs:
+  handle-incident:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print incident details
+        run: echo "Incident reported"
+
+# curl -X POST \
+#  -H "Authorization: token GITHUB_TOKEN" \
+# -H "Accept: application/vnd.github+json" \
+#  https://api.github.com/repos/OWNER/REPO/dispatches \
+#  -d '{
+#   "event_type": "incident_report",
+#  "client_payload": {
+#   "service": "api",
+#  "severity": "high"
+#}
+# }
+
+################
+#- name: Print incident data
+#  run: |
+#    echo "Service: ${{ github.event.client_payload.service }}"
+#   echo "Severity: ${{ github.event.client_payload.severity }}"
+###############
