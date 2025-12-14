@@ -1,0 +1,20 @@
+name: first
+
+on:
+  push:
+    branches:
+        - main
+jobs:
+  example-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print a greeting
+        run: echo "Welcome I'am Abdo and this my repo to learn github action!"
+
+      - name: Checkout repository
+        uses: actions/checkout@v4.2.2
+        
+      - name: List repository files
+        run: ls -la
+        
