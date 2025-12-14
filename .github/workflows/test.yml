@@ -1,0 +1,14 @@
+on:
+  workflow_dispatch:
+
+permission:
+  issues: write
+
+jobs:
+  create-issue:
+    run-on: ubuntu-latest
+    steps:
+      - name: create github issue
+        run: gh issue create --title "Bug Report" --body "
+        env:
+          GH_Token: ${{secrets.GITHUB_TOKEN}}
